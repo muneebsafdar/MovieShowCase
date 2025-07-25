@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+@import "tailwindcss";
+
+.scroll-bar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scroll-bar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+textarea:-webkit-autofill, 
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #171717 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+  border: 1px solid #14b8a6 !important; /* teal-500 */
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.5) !important; /* ring-teal-500 */
+}
+
+
+@theme{
+    --font-Gothic: "Special Gothic Expanded One", "sans-serif"
+}
