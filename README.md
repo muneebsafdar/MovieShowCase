@@ -33,13 +33,13 @@ A beautiful, responsive **Movie Showcase App** built with React, Redux Toolkit, 
 
 
 src/
-├── components/ # Reusable components
-├── pages/ # Page-level components (Home, Login, Signup)
-├── redux/ # Redux slices and store setup
-├── services/ # Movie API service
-├── assets/ # Images, fonts, etc.
-├── App.jsx
-└── main.jsx
+- ├── components/ # Reusable components
+- ├── pages/ # Page-level components (Home, Login, Signup)
+- ├── redux/ # Redux slices and store setup
+- ├── services/ # Movie API service
+- ├── assets/ # Images, fonts, etc.
+- ├── App.jsx
+- └── main.jsx
 
 
 
