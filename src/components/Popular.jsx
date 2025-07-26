@@ -3,15 +3,39 @@ import movieService from '../MovieService/MovieService';
 import { useState,useEffect } from 'react';
 import DropDown from './dropDown';
 import MovieCard from './movieCard';
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 function Popular() {
 
-    const [Popular, setPopular] = useState("");
+    const [Popular, setPopular] = useState([]);
     const [category,setCategory] =useState("all")
+    const [total_pages,setTotalPages]=useState(1000)
+
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
     
     const getTrendingData = async () => {
-        const data = await movieService.GettingPopular(category);
-        setPopular(data);
+        console.log('hello');
+        const data = await movieService.GettingPopular(category,page);
+        
+        console.log(data);
+        
+
+        if (data) {
+        setPopular((prev) => [...prev, ...data]);
+        console.log("data is avauoabe");
+        
+
+        // Stop fetching if no more pages
+        if (page >= total_pages) {
+            setHasMore(false);
+            console.log("set more");
+        } else {
+            setPage((prev) => prev + 1);
+        }
+    }
+
         };
 
   useEffect(() => {
@@ -23,25 +47,34 @@ function Popular() {
 
 
     return (
-        <div className='w-full h-vh scroll-bar-hidden overflow-y-scroll '>
+        <div id="scrollableDiv" className='w-full h-screen overflow-y-scroll '>
            <div className='w-full flex justify-between items-center px-10 py-5'>
 
              <h1 className='text-3xl font-Gothic font-bold px-4'>Popular</h1>
              <DropDown  options={['all','movie','tv']} CategorySetter={setCategory}/>
 
            </div>
-            <div className='w-full px-4 py-2   flex justify-center flex-wrap overflow-x-scroll overflow-y-scroll  scroll-bar-hidden gap-5 text-white'>
-                {
-                    Popular && Popular.map((movie,index)=>(
+
+            <InfiniteScroll
+                dataLength={Popular.length}
+                next={getTrendingData}
+                hasMore={hasMore}
+                loader={<h4 className="text-white text-center">Loading...</h4>}
+                endMessage={<p className="text-white text-center">No more movies to display.</p>}
+                scrollableTarget="scrollableDiv"
+            >
+                <div className="w-full px-4 py-2 flex justify-center flex-wrap gap-5 text-white">
+                {Popular.map((movie, index) => (
                     <MovieCard
-                        movie={movie}
-                        index={index}
-                        key={index}
-                        className="lg:w-[200px] w-[160px]" // fixed width instead of max-w-[20%]
+                    movie={movie}
+                    index={index}
+                    key={index}
+                    className="lg:w-[200px] w-[160px]"
                     />
                 ))}
-            </div>
-           
+                </div>
+            </InfiniteScroll>
+                
         </div>
     )
 }

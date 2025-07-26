@@ -30,14 +30,11 @@ class MovieService {
     } 
 
     
-    async GettingMovies(){
+    async GettingMovies(page=1){
         try {
-            const res = await fetch(`https://api.themoviedb.org/3/discover/movie`, options);
+            const res = await fetch(`https://api.themoviedb.org/3/discover/movie?page=${page}`, options);
             const data = await res.json();
-            console.log(data);
-            
-            const Movies = data.results;
-            // console.log(Movies);
+            const Movies = data;
             return Movies
             
         } catch (err) {
@@ -45,14 +42,11 @@ class MovieService {
         }
     } 
 
-    async GettingTvShows(){
+    async GettingTvShows(page=1){
         try {
-            const res = await fetch(`https://api.themoviedb.org/3/discover/tv`, options);
+            const res = await fetch(`https://api.themoviedb.org/3/discover/tv?page=${page}`, options);
             const data = await res.json();
-            console.log(data);
-            
-            const Movies = data.results;
-            // console.log(Movies);
+            const Movies = data;
             return Movies
             
         } catch (err) {
@@ -60,16 +54,16 @@ class MovieService {
         }
     } 
 
-    async GettingPopular(category){
+    async GettingPopular(category,page=1){
         
         try {
             if (category==="all") {
                 
-                let movies=await fetch(`https://api.themoviedb.org/3/movie/popular`, options);
+                let movies=await fetch(`https://api.themoviedb.org/3/movie/popular?page=${page}`, options);
                 movies= await movies.json()
                 movies=movies.results
 
-                let tv=await fetch(`https://api.themoviedb.org/3/tv/popular`, options);
+                let tv=await fetch(`https://api.themoviedb.org/3/tv/popular?page=${page}`, options);
                 tv= await tv.json()
                 tv=tv.results
                 
@@ -78,7 +72,7 @@ class MovieService {
                 return Movies
 
             }else{
-                const res = await fetch(`https://api.themoviedb.org/3/${category}/popular`, options);
+                const res = await fetch(`https://api.themoviedb.org/3/${category}/popular?page=${page}`, options);
                 const data = await res.json();
                 const Movies = data.results;
                 return Movies
