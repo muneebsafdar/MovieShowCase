@@ -1,5 +1,5 @@
 import React from 'react'
-import Trending from '../components/Trending'
+import Trending from '../components/Trending.jsx'
 
 
 function Trendingpage() {

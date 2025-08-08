@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import movieService from '../MovieService/MovieService'
-import MovieCard from './movieCard'
-import DropDown from './dropDown'
+import movieService from '../MovieService/MovieService.js'
+import MovieCard from './movieCard.jsx'
+import DropDown from './dropDown.jsx'
 
 function TredingSection() {
 

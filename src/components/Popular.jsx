@@ -1,8 +1,8 @@
 import React from 'react'
-import movieService from '../MovieService/MovieService';
+import movieService from '../MovieService/MovieService.js';
 import { useState,useEffect } from 'react';
-import DropDown from './dropDown';
-import MovieCard from './movieCard';
+import DropDown from './dropDown.jsx';
+import MovieCard from './movieCard.jsx';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 

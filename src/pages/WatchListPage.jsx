@@ -1,5 +1,5 @@
 import React from 'react'
-import WatchList from '../components/Watchlist'
+import WatchList from '../components/WatchList.jsx'
 
 function WatchListPage() {
     return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import movieService from '../MovieService/MovieService';
+import movieService from '../MovieService/MovieService.js';
 import { Link } from 'react-router-dom';
 
 function TrendingPoster() {

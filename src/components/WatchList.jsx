@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import MovieCard from './movieCard'
+import MovieCard from './movieCard.jsx'
 
 function WatchList() {
 

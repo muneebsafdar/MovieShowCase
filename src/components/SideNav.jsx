@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
-import Logo from './Logo'; // Make sure your Logo component is correctly imported
+import Logo from './Logo.jsx'; // Make sure your Logo component is correctly imported
 
 function SideNav({ children }) {
   const navigate = useNavigate();

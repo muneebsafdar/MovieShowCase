@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import MovieCard from './movieCard';
-import movieService from '../MovieService/MovieService';
+import MovieCard from './movieCard.jsx';
+import movieService from '../MovieService/MovieService.js';
 
 function Movie() {
   const [movies, setMovies] = useState([]);
